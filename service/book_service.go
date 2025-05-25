@@ -4,6 +4,7 @@ import (
 	"books-api/logger"
 	"books-api/model"
 	"books-api/store"
+	"books-api/util"
 )
 
 type BookService struct {
@@ -36,6 +37,10 @@ func (service *BookService) Delete(isbn string) error {
 }
 
 func (service *BookService) UpdateByIsbn(isbn string, book model.Book) (model.Book, error) {
+	if isbn != book.ISBN {
+		return model.Book{}, util.ErrIsbnNotMatch
+	}
+
 	updateBook, err := service.store.UpdateBook(isbn, book)
 
 	if err == nil {
