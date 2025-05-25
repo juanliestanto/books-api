@@ -9,7 +9,12 @@ This application uses **in-memory storage** and clean modular architecture.
 - Go 1.22 or newer
 
 ### Start the App
-The server will start on : http://localhost:8080
+This application runs a web server accessible at [http://localhost:8080](http://localhost:8080).
+
+## How to Run
+
+Open your terminal and execute the following command:
+
 ```
 go run main.go
 ```
